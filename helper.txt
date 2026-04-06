@@ -1,0 +1,21 @@
+Ronald
+
+text pipeline
+TF-IDF baseline
+BERT / transformer experiments
+text preprocessing
+
+You
+
+image pipeline
+HOG or color histogram baseline
+CNN / ResNet experiments
+image preprocessing
+
+Both together
+
+fusion models
+evaluation metrics
+report
+presentation
+

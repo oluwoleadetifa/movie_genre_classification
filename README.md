@@ -15,7 +15,7 @@ We aim to answer:
 
 ---
 
-## 🧠 Research Direction
+## Research Direction
 
 We explore three core dimensions:
 
@@ -38,7 +38,7 @@ We explore three core dimensions:
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 Since this is a **multi-label problem**, we use:
 
@@ -49,7 +49,7 @@ Since this is a **multi-label problem**, we use:
 
 ---
 
-## 🤝 Team Responsibilities
+## Team Responsibilities
 
 ### Ronald
 - Text preprocessing pipeline
@@ -71,7 +71,7 @@ Since this is a **multi-label problem**, we use:
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 movie-genre-multimodal/
 │
 ├── README.md
@@ -140,7 +140,7 @@ movie-genre-multimodal/
 
 ---
 
-## 📁 Dataset Setup (IMPORTANT)
+## Dataset Setup (IMPORTANT)
 
 The dataset is stored in **Google Drive**, not in this repo.
 

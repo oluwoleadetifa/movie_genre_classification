@@ -1,0 +1,23 @@
+name: movie-genre-mm
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - pillow
+  - jupyter
+  - nltk
+  - pyyaml
+  - tqdm
+  - pip:
+      - opencv-python
+      - torch
+      - torchvision
+      - transformers
+      - datasets
+      - kaggle

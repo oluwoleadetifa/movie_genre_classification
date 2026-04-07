@@ -1,21 +1,29 @@
 # 🎬 Multimodal Movie Genre Classification
 
-A multimodal machine learning project that explores how **textual and visual representations** can be combined to improve **multi-label movie genre classification**.
+A multimodal machine learning project that explores how **textual and visual representations** can be combined to improve **movie genre classification**.
 
 ---
 
 ## 🔍 Problem Overview
 
-Movies often belong to **multiple genres simultaneously** (e.g., *Action + Comedy*).  
-This project models genre prediction as a **multi-label classification problem**, where each genre is treated as an independent binary output.
+Movies are typically described using both **visual cues** (posters) and **textual narratives** (plot summaries). This project investigates how these complementary modalities can be leveraged together for genre prediction.
+
+While movie genre classification is inherently a **multi-label problem** in real-world settings, the dataset used in this project assigns a **single primary genre per movie** across four categories:
+
+- Action  
+- Comedy  
+- Horror  
+- Romance  
+
+Therefore, this work formulates the task as a **multi-class classification problem**.
 
 We aim to answer:
 
-> **How do feature representations and fusion strategies affect multimodal classification performance in a multi-label setting?**
+> **How do feature representations and fusion strategies affect multimodal classification performance, and which fusion strategy (late vs intermediate) is more effective?**
 
 ---
 
-## Research Direction
+## 🧠 Research Direction
 
 We explore three core dimensions:
 
@@ -38,18 +46,18 @@ We explore three core dimensions:
 
 ---
 
-## Evaluation Metrics
+## 📊 Evaluation Metrics
 
-Since this is a **multi-label problem**, we use:
+Since this is a **multi-class classification problem**, we use:
 
-- **F1-score (sample-averaged)** → primary metric  
-- **Hamming Loss** → per-label error  
-- **Macro ROC-AUC** → class-wise performance  
-- **Subset Accuracy** → strict match (secondary)
+- **Accuracy**
+- **Macro F1-score** → primary metric  
+- **Precision and Recall (per class)**
+- **Confusion Matrix**
 
 ---
 
-## Team Responsibilities
+## 🤝 Team Responsibilities
 
 ### Ronald
 - Text preprocessing pipeline
@@ -71,7 +79,7 @@ Since this is a **multi-label problem**, we use:
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 movie-genre-multimodal/
 │
 ├── README.md
@@ -80,9 +88,9 @@ movie-genre-multimodal/
 ├── .gitignore
 │
 ├── data/
-│ ├── raw/ # (empty in repo) → actual dataset lives in Google Drive
-│ ├── interim/ # cleaned / partially processed data
-│ ├── processed/ # final model-ready datasets
+│ ├── raw/ # empty in repo → dataset stored in Google Drive
+│ ├── interim/ # partially processed data
+│ ├── processed/ # cleaned dataset
 │ └── splits/ # train/val/test splits
 │
 ├── notebooks/
@@ -152,9 +160,13 @@ Movie_Genre_Project/
 ├── figures/
 
 
+
 Each team member should:
-1. Download or mount the dataset locally
-2. Set their local path via environment variables or config
+1. Download or sync the dataset locally  
+2. Set the dataset path in `.env`  
+
+Example:
+DRIVE_DATA_DIR=/path/to/your/local/dataset_raw
 
 ---
 
@@ -221,3 +233,13 @@ conda activate movie-genre-mm
 - Use consistent train/val/test splits across modalities
 - Name experiments clearly
 - Log results (don’t rely on memory)
+
+
+## Expected Outcome
+
+By the end of this project, we will:
+
+- Compare handcrafted vs learned feature representations
+- Evaluate multimodal fusion strategies
+- Analyze the relative importance of image vs text modalities
+- Assess robustness under missing modality conditions

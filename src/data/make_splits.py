@@ -1,17 +1,47 @@
-make_splits_text = """
 import pandas as pd
-from src.config import TRAIN_SPLIT_CSV, VAL_SPLIT_CSV, TEST_SPLIT_CSV
+from sklearn.model_selection import train_test_split
+from src.config import PROCESSED_DATA_DIR, SPLITS_DIR
 
 
-def load_saved_splits():
-    train_df = pd.read_csv(TRAIN_SPLIT_CSV)
-    val_df = pd.read_csv(VAL_SPLIT_CSV)
-    test_df = pd.read_csv(TEST_SPLIT_CSV)
+def make_splits():
+    input_path = PROCESSED_DATA_DIR / "movies_with_posters.csv"
+    df = pd.read_csv(input_path)
 
-    return train_df, val_df, test_df
-"""
+    # train 70, val 15, test 15
+    train_df, temp_df = train_test_split(
+        df,
+        test_size=0.30,
+        random_state=42,
+        stratify=df["genre"]
+    )
 
-with open("/content/movie_genre_classification/src/data/make_splits.py", "w") as f:
-    f.write(make_splits_text)
+    val_df, test_df = train_test_split(
+        temp_df,
+        test_size=0.50,
+        random_state=42,
+        stratify=temp_df["genre"]
+    )
 
-print("make_splits.py updated")
+    SPLITS_DIR.mkdir(parents=True, exist_ok=True)
+
+    train_df.to_csv(SPLITS_DIR / "train.csv", index=False)
+    val_df.to_csv(SPLITS_DIR / "val.csv", index=False)
+    test_df.to_csv(SPLITS_DIR / "test.csv", index=False)
+
+    print("Saved splits:")
+    print("Train:", train_df.shape)
+    print("Val:", val_df.shape)
+    print("Test:", test_df.shape)
+
+    print("\nTrain genre distribution:")
+    print(train_df["genre"].value_counts())
+
+    print("\nVal genre distribution:")
+    print(val_df["genre"].value_counts())
+
+    print("\nTest genre distribution:")
+    print(test_df["genre"].value_counts())
+
+
+if __name__ == "__main__":
+    make_splits()

@@ -3,12 +3,22 @@ import os
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
-RAW_DATA_DIR = DATA_DIR / "raw"
+RAW_DATA_DIR = Path(os.getenv("RAW_DATA_DIR", DATA_DIR / "raw"))
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
+SPLITS_DIR = DATA_DIR / "splits"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
-TEXT_COLUMN = "overview"
+MODELS_DIR = OUTPUT_DIR / "models"
+METRICS_DIR = OUTPUT_DIR / "metrics"
+FIGURES_DIR = OUTPUT_DIR / "figures"
+
+for path in [PROCESSED_DATA_DIR, SPLITS_DIR, MODELS_DIR, METRICS_DIR, FIGURES_DIR]:
+    path.mkdir(parents=True, exist_ok=True)
+
+DATA_CSV = RAW_DATA_DIR / "IMDB_four_genre_larger_plot_description.csv"
+
+TEXT_COLUMN = "description"
 ID_COLUMN = "movie_id"
-LABEL_COLUMNS = ["Action", "Comedy", "Horror", "Romance"]
-# Optional external shared drive path
-DRIVE_DATA_DIR = Path(os.getenv("DRIVE_DATA_DIR", RAW_DATA_DIR))
+LABEL_COLUMN = "genre"
+
+CLASS_NAMES = ["action", "comedy", "horror", "romance"]

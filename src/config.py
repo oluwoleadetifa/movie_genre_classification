@@ -7,5 +7,8 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
+TEXT_COLUMN = "overview"
+ID_COLUMN = "movie_id"
+LABEL_COLUMNS = ["Action", "Comedy", "Horror", "Romance"]
 # Optional external shared drive path
 DRIVE_DATA_DIR = Path(os.getenv("DRIVE_DATA_DIR", RAW_DATA_DIR))

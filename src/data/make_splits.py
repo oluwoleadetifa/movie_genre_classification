@@ -1,3 +1,4 @@
+make_splits_text = """
 import pandas as pd
 from src.config import TRAIN_SPLIT_CSV, VAL_SPLIT_CSV, TEST_SPLIT_CSV
 
@@ -8,3 +9,9 @@ def load_saved_splits():
     test_df = pd.read_csv(TEST_SPLIT_CSV)
 
     return train_df, val_df, test_df
+"""
+
+with open("/content/movie_genre_classification/src/data/make_splits.py", "w") as f:
+    f.write(make_splits_text)
+
+print("make_splits.py updated")

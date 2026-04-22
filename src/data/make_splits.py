@@ -41,8 +41,8 @@ def save_split_ids(train_df, val_df, test_df):
 
 
 def load_saved_splits():
-    train_df = pd.read_csv(SPLITS_DIR / "train_split.csv")
-    val_df = pd.read_csv(SPLITS_DIR / "val_split.csv")
-    test_df = pd.read_csv(SPLITS_DIR / "test_split.csv")
+    train_df = pd.read_csv(SPLITS_DIR / "train.csv")
+    val_df = pd.read_csv(SPLITS_DIR / "val.csv")
+    test_df = pd.read_csv(SPLITS_DIR / "test.csv")
 
     return train_df, val_df, test_df

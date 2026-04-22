@@ -13,3 +13,4 @@ jupyter
 kaggle
 pyyaml
 tqdm
+python-dotenv

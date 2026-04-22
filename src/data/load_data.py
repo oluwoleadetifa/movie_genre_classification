@@ -2,7 +2,6 @@ load_data_text = """
 import pandas as pd
 from src.config import DATA_CSV, TEXT_COLUMN, ID_COLUMN, LABEL_COLUMN, GENRE_COLUMN
 
-
 def load_dataset(csv_path=None):
     csv_path = csv_path or DATA_CSV
     df = pd.read_csv(csv_path)
@@ -17,7 +16,6 @@ def load_dataset(csv_path=None):
         )
 
     return df
-
 
 def basic_dataset_check(df):
     print("Dataset shape:", df.shape)

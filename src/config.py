@@ -1,12 +1,10 @@
+config_text = """
 from pathlib import Path
-from dotenv import load_dotenv
-import os
 
-# Load environment variables from .env
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
-INTERIM_DATA_DIR = DATA_DIR / "interim"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 SPLITS_DIR = DATA_DIR / "splits"
 
@@ -27,10 +25,22 @@ for folder in [
 ]:
     folder.mkdir(parents=True, exist_ok=True)
 
-DATA_CSV = RAW_DATA_DIR / "IMDB_four_genre_larger_plot_description.csv"
+DATA_CSV = PROCESSED_DATA_DIR / "movies_with_posters.csv"
+
+TRAIN_SPLIT_CSV = SPLITS_DIR / "train.csv"
+VAL_SPLIT_CSV = SPLITS_DIR / "val.csv"
+TEST_SPLIT_CSV = SPLITS_DIR / "test.csv"
 
 TEXT_COLUMN = "description"
 ID_COLUMN = "movie_id"
-LABEL_COLUMN = "genre"
+LABEL_COLUMN = "label"
+GENRE_COLUMN = "genre"
+IMAGE_PATH_COLUMN = "image_path"
 
 CLASS_NAMES = ["action", "comedy", "horror", "romance"]
+"""
+
+with open("/content/movie_genre_classification/src/config.py", "w") as f:
+    f.write(config_text)
+
+print("config.py updated")

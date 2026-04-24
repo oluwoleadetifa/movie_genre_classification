@@ -27,5 +27,4 @@ def train_text_model(model, X_train, y_train):
 def predict_text_model(model, X):
     y_pred = model.predict(X)
     y_prob = model.predict_proba(X)
-
     return y_pred, y_prob

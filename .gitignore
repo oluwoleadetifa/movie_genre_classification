@@ -1,24 +1,14 @@
-# Python
+venv/
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-
-# Environments
-.venv/
-venv/
-env/
-ENV/
-
-# Jupyter
 .ipynb_checkpoints/
-
-# OS files
+.env
 .DS_Store
-Thumbs.db
 
-# Data
 data/raw/*
+data/interim/*
+data/processed/*
+data/splits/*
 !data/raw/.gitkeep
 
 data/interim/*
@@ -26,12 +16,12 @@ data/interim/*
 
 data/processed/*
 !data/processed/.gitkeep
-
-# Outputs
-outputs/models/*
-!outputs/models/.gitkeep
+!data/splits/.gitkeep
 
 outputs/figures/*
+outputs/logs/*
+outputs/metrics/*
+outputs/models/*
 !outputs/figures/.gitkeep
 
 outputs/logs/*

@@ -1,4 +1,4 @@
-config_text = """
+
 from pathlib import Path
 from dotenv import load_dotenv
 import os
@@ -42,9 +42,3 @@ GENRE_COLUMN = "genre"
 IMAGE_PATH_COLUMN = "image_path"
 
 CLASS_NAMES = ["action", "comedy", "horror", "romance"]
-"""
-
-with open("/content/movie_genre_classification/src/config.py", "w") as f:
-    f.write(config_text)
-
-print("config.py updated")
